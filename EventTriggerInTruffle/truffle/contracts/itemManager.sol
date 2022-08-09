@@ -30,8 +30,8 @@ contract itemManager is Ownable {
     // event for supply chain step
     event supplyChainStep(
         uint256 _itemChecker,
-        uint256 _itemStep,
-        address _address
+        uint256 _itemStep
+        // address _address
     );
 
     // item Price convert wei to ether
@@ -43,8 +43,8 @@ contract itemManager is Ownable {
         uint256 _amount,
         uint256 _itemId
     ) public onlyOwner {
-        Item item = new Item(this, _amount, itemChecker);
-        itemAdd[itemChecker]._item = item;
+        // Item item = new Item(this, _amount, itemChecker);
+        // itemAdd[itemChecker]._item = item;
 
         itemAdd[itemChecker].name = _name;
         itemAdd[itemChecker].amount = _amount * itemPriceConverter;
@@ -54,8 +54,8 @@ contract itemManager is Ownable {
 
         emit supplyChainStep(
             itemChecker,
-            uint256(itemAdd[itemChecker]._status),
-            address(item)
+            uint256(itemAdd[itemChecker]._status)
+            // address(item)
         );
         // itemCreatedStruct.push(_name ,_amount , _itemId ,_itemLimit);
         itemChecker++;
@@ -81,8 +81,8 @@ contract itemManager is Ownable {
         itemAdd[_itemIndex]._status = itemChechStatus.paid;
         emit supplyChainStep(
             _itemIndex,
-            uint256(itemAdd[_itemIndex]._status),
-            address(item)
+            uint256(itemAdd[_itemIndex]._status)
+            // address(item)
         );
     }
 
@@ -97,8 +97,8 @@ contract itemManager is Ownable {
 
         emit supplyChainStep(
             _itemIndex,
-            uint256(itemAdd[_itemIndex]._status),
-            address(itemAdd[_itemIndex]._item)
+            uint256(itemAdd[_itemIndex]._status)
+            // address(itemAdd[_itemIndex]._item)
         );
     }
 }

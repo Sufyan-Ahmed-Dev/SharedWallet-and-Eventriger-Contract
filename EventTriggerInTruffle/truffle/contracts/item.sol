@@ -4,16 +4,16 @@ pragma solidity >=0.7.0 <0.9.0;
 
 import "./itemManager.sol";
 
-contract Item {
+abstract contract Item {
     uint256 index;
     uint256 itemPrice;
     itemManager parentContract;
 
-    constructor(
+constructor(
         itemManager _parentContract,
         uint256 _itemPrice,
         uint256 _index
-    ) public {
+    )  {
         parentContract = _parentContract;
         itemPrice = _itemPrice;
         index = _index;
