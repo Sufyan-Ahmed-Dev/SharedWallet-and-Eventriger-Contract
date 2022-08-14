@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 
-//problem 1 .. when i add one input value it save in both cost ==itemname   
-
 function Item() {
     {
 
@@ -22,7 +20,7 @@ function Item() {
          var handleInputChange = (e) => {
 
           console.log(e);
-          const cost = e.target.value;
+          const cost = e.target.name;
           const itemName = e.target.value;
           setData({...data , [cost]:itemName});
            
