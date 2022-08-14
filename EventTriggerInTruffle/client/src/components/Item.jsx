@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+//problem 1 .. when i add one input value it save in both cost ==itemname   
 
 function Item() {
     {
 
+      const [data ,setData ] = useState({
+         cost: "" , itemName : ""
+      })
       //  const state = {cost: 0, itemName: "exampleItem1", loaded:false};
         // const a = console.log("hello world")
       var  handleSubmit = async () => {
@@ -14,7 +19,17 @@ function Item() {
             alert("function is good")
           };
         
-         var handleInputChange = (event) => {
+         var handleInputChange = (e) => {
+
+          console.log(e);
+          const cost = e.target.value;
+          const itemName = e.target.value;
+          setData({...data , [cost]:itemName});
+           
+          // console.log(allData)
+
+          console.log(`Your cost ${cost}`)
+          console.log(`Your ItemName Is ${itemName}`);
             // const target = event.target;
             // const value = target.type === 'checkbox' ? target.checked : target.value;
             // const name = target.name;
@@ -27,8 +42,8 @@ function Item() {
         <h2>Items</h2>
 
         <h2>Add Element</h2>
-        Cost: <input type="text" name="cost"  onChange={handleInputChange} />
-        Item Name: <input type="text" name="itemName" onChange={handleInputChange} />
+        Cost: <input type="text" name="cost"   onChange={handleInputChange}  value ={data.cost}  />
+        Item Name: <input type="text" name="itemName" onChange={handleInputChange} value ={data.itemName}/>
         <button type="button" onClick={handleSubmit}>Create new Item</button>
       </div>
     
